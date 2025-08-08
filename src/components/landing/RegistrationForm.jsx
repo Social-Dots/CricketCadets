@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { X, Send, User, Mail, CheckCircle, Rocket, Star, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import databaseService from '@/api/database';
 
 export default function RegistrationForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -17,16 +18,32 @@ export default function RegistrationForm({ isOpen, onClose }) {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Waiting list registration submitted:', formData);
-    setSubmitted(true);
+    
+    try {
+      const result = await databaseService.submitWaitlist({
+        parentName: formData.parentName,
+        email: formData.email,
+        childAge: formData.childAge,
+        source: 'website'
+      });
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ parentName: '', email: '', childAge: '' });
-      onClose();
-    }, 3000);
+      if (result.success) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ parentName: '', email: '', childAge: '' });
+          onClose();
+        }, 3000);
+      } else {
+        console.error('Failed to submit waitlist:', result.error);
+        alert(`Failed to submit. Error: ${result.error}. Please try again.`);
+      }
+    } catch (error) {
+      console.error('Error submitting waitlist:', error);
+      alert('Failed to submit. Please try again.');
+    }
   };
 
   const handleInputChange = (field, value) => {

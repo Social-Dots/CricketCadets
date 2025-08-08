@@ -96,10 +96,10 @@ export default function Footer() {
                 <div>
                   <p className="text-emerald-100">Call us:</p>
                   <a 
-                    href="tel:+1-800-CRICKET" 
+                    href="tel:+12898153123" 
                     className="text-white hover:text-amber-300 transition-colors"
                   >
-                    1-800-CRICKET
+                    +1 (289) 815-3123
                   </a>
                 </div>
               </div>

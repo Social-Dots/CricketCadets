@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from 'lucide-react';
@@ -109,8 +110,15 @@ export default function Layout({ children, currentPageName }) {
                         <a 
                             href="#" 
                             onClick={(e) => scrollToSection(e, '#top')} 
-                            className="text-white text-xl hover:opacity-80 transition-opacity"
+                            className="text-white hover:opacity-80 transition-opacity flex items-center gap-3"
                         >
+                            {/* Logo Image */}
+                            <img 
+                                src="/Logo.png" 
+                                alt="Cricket Cadet Logo" 
+                                className="w-10 h-10 object-contain"
+                            />
+                            {/* Brand Name */}
                            <AnimatedCricketCadet className="text-xl md:text-2xl" />
                         </a>
                         
@@ -229,3 +237,4 @@ export default function Layout({ children, currentPageName }) {
         </div>
     );
 }
+
