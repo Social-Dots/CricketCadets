@@ -23,8 +23,8 @@ export default function HeroSection({ onRegisterClick }) {
       <div className="absolute inset-0 z-20 bg-gradient-to-r from-emerald-900 via-emerald-900/70 to-transparent"></div>
 
       {/* Content */}
-      <div className="relative z-30 max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -37,8 +37,8 @@ export default function HeroSection({ onRegisterClick }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Badge className="bg-amber-500 text-amber-900 hover:bg-amber-400 mb-6 px-4 py-2 text-sm font-semibold shadow-lg shadow-amber-500/20">
-                <Zap className="w-4 h-4 mr-2" />
+              <Badge className="bg-amber-500 text-amber-900 hover:bg-amber-400 mb-3 sm:mb-4 px-3 py-1.5 text-xs sm:text-sm font-semibold shadow-lg shadow-amber-500/20">
+                <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 A CANADIAN FIRST
               </Badge>
             </motion.div>
@@ -48,14 +48,14 @@ export default function HeroSection({ onRegisterClick }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold leading-tight mb-6 tracking-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-snug mb-2 sm:mb-4 tracking-tight"
             >
               A New Era for
-              <br />
+              <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                 Junior Cricket
               </span>
-              <br />
+              <br className="hidden sm:block" />
               in 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
                 {" "}Canada.
@@ -67,7 +67,7 @@ export default function HeroSection({ onRegisterClick }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-emerald-100 mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-emerald-100 mb-4 sm:mb-6 leading-normal"
             >
               For the first time, Canada's aspiring young cricketers have access to elite, internationally-proven coaching techniques. We're building the next generation of talent, right here at home.
             </motion.p>
@@ -77,14 +77,14 @@ export default function HeroSection({ onRegisterClick }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-6 mb-8"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-4 sm:mb-6"
             >
-              <div className="flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-blue-400" />
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+                <Cpu className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 flex-shrink-0" />
                 <span className="text-emerald-100">World-Class Techniques</span>
               </div>
-              <div className="flex items-center gap-2">
-                <BarChart className="w-5 h-5 text-blue-400" />
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+                <BarChart className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 flex-shrink-0" />
                 <span className="text-emerald-100">Made for Canadian Kids</span>
               </div>
             </motion.div>
@@ -94,23 +94,23 @@ export default function HeroSection({ onRegisterClick }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-3"
             >
               <Button
                 onClick={onRegisterClick}
-                size="lg"
-                className="bg-amber-500 hover:bg-amber-600 text-amber-900 font-bold px-8 py-4 text-lg rounded-xl shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 hover:scale-105"
+                size="md"
+                className="bg-amber-500 hover:bg-amber-600 text-amber-900 font-bold px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg shadow-xl hover:shadow-amber-500/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                Be Among The First – Join Waitlist
-                <ArrowRight className="w-5 h-5 ml-2" />
+                Join Waitlist
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
               </Button>
               <Button
                 variant="outline"
-                size="lg"
-                className="text-blue bg-blue border-2 border-blue-400 hover:bg-white hover:text-emerald-900 font-semibold px-8 py-4 text-lg rounded-xl backdrop-blur-sm transition-all duration-300"
+                size="md"
+                className="text-blue bg-blue border border-blue-400 hover:bg-white hover:text-emerald-900 font-semibold px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
               >
-                <Play className="w-5 h-5 mr-2" />
-                Discover Our Method
+                <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                Learn More
               </Button>
             </motion.div>
           </motion.div>
@@ -120,9 +120,9 @@ export default function HeroSection({ onRegisterClick }) {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="hidden lg:block"
+            className="lg:block mt-6 lg:mt-0"
           >
-            <div className="grid gap-6">
+            <div className="grid gap-3 sm:gap-4">
               {[
                 { title: "Elite Coaching Arrives", label: "Proven Australian techniques, adapted for Canada.", icon: Cpu },
                 { title: "Passion-First Philosophy", label: "Nurturing a lifelong love for the game.", icon: Users },
@@ -133,15 +133,15 @@ export default function HeroSection({ onRegisterClick }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+                  className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/20"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                      <stat.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-md flex items-center justify-center flex-shrink-0">
+                      <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">{stat.title}</div>
-                      <div className="text-emerald-200 text-sm">{stat.label}</div>
+                      <div className="text-sm sm:text-base font-bold text-white">{stat.title}</div>
+                      <div className="text-emerald-200 text-xs">{stat.label}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -156,15 +156,15 @@ export default function HeroSection({ onRegisterClick }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white z-30"
+        className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 text-white z-30"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-0.5"
         >
-          <span className="text-sm">Discover the Program</span>
-          <ArrowRight className="w-4 h-4 rotate-90" />
+          <span className="text-[10px] sm:text-xs">Scroll</span>
+          <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 rotate-90" />
         </motion.div>
       </motion.div>
     </section>
