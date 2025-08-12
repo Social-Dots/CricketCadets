@@ -110,16 +110,14 @@ export default function Layout({ children, currentPageName }) {
                         <a 
                             href="#" 
                             onClick={(e) => scrollToSection(e, '#top')} 
-                            className="text-white hover:opacity-80 transition-opacity flex items-center gap-3"
+                            className="text-white hover:opacity-80 transition-opacity flex items-center"
                         >
                             {/* Logo Image */}
                             <img 
                                 src="/logo.png" 
                                 alt="Cricket Cadet Logo" 
-                                className="w-10 h-10 object-contain"
+                                className="w-16 h-16 object-contain"
                             />
-                            {/* Brand Name */}
-                           <AnimatedCricketCadet className="text-xl md:text-2xl" />
                         </a>
                         
                         {/* Desktop Navigation Menu */}

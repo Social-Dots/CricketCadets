@@ -51,11 +51,10 @@ export default function HeroSection({ onRegisterClick }) {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-snug mb-2 sm:mb-4 tracking-tight"
             >
               A New Era for
-              <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                Junior Cricket
+                {" "}Junior Cricket
               </span>
-              <br className="hidden sm:block" />
+              <br />
               in 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
                 {" "}Canada.
