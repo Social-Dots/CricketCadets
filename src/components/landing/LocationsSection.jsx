@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, Rocket, Trophy } from 'lucide-react';
+import { ArrowRight, Star, Rocket, Trophy, Target, Shield, Zap, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function LocationsSection() {
@@ -11,22 +11,22 @@ export default function LocationsSection() {
       city: "Milton",
       province: "Ontario",
       status: "Launching Early 2026",
-      image: "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["State-of-the-Art Facilities", "Expert Coaching Staff", "AI-Powered Analytics"]
+      image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["State-of-the-Art Cricket Facilities", "Expert Coaching Staff", "AI-Powered Analytics"]
     },
     {
       city: "Mississauga",
       province: "Ontario",
       status: "Launching Early 2026",
-      image: "https://images.unsplash.com/photo-1593563972583-f9339411b7a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Year-Round Training Programs", "Modern Equipment", "Small Group Focus"]
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ451N90ER7X76T8pn1zjjaBM0jVXZFO5gPCA&s",
+      features: ["Year-Round Cricket Training", "Professional Cricket Equipment", "Small Group Focus"]
     },
     {
       city: "Brampton",
       province: "Ontario",
       status: "Launching Early 2026",
-      image: "https://images.unsplash.com/photo-1598813872244-23b69e35832c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      features: ["Climate-Controlled Venues", "Flexible Schedules", "Pathway to Excellence"]
+      image: "https://www.caribbeanlife.com/wp-content/uploads/2023/10/windies-high-performance-camp-2023-10-12-dr-cl01.jpg",
+      features: ["Climate-Controlled Cricket Venues", "Flexible Training Schedules", "Elite Cricket Pathway"]
     }
   ];
 
@@ -35,7 +35,16 @@ export default function LocationsSection() {
   };
 
   return (
-    <section id="locations" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="locations" className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Cricket Background Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <img
+          src="https://images.unsplash.com/photo-1629283742959-58a275b0a3d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="Cricket field background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -43,14 +52,18 @@ export default function LocationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative"
         >
-          <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-200 mb-4 px-4 py-2">
-            <Rocket className="w-4 h-4 mr-2" />
-            Launching Early 2026 in the GTA
-          </Badge>
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-200 px-4 py-2">
+              <Rocket className="w-4 h-4 mr-2" />
+              Launching Early 2026 in the GTA
+            </Badge>
+            <Target className="w-6 h-6 text-emerald-600 hidden sm:block" />
+            <Award className="w-6 h-6 text-amber-600 hidden sm:block" />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            THE REVOLUTION
+            THE CRICKET REVOLUTION
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">
               {" "}
               IS COMING TO
@@ -61,7 +74,7 @@ export default function LocationsSection() {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Our mission is to make elite cricket training accessible. Our first state-of-the-art academies are set to launch across the GTA in Early 2026.
+            Our mission is to make elite cricket training accessible. Our first state-of-the-art cricket academies are set to launch across the GTA in Early 2026.
           </p>
         </motion.div>
 
@@ -95,11 +108,13 @@ export default function LocationsSection() {
                 </div>
 
                 <CardContent className="p-6">
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {location.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        {feature}
+                      <div key={idx} className="flex items-center gap-3 text-sm text-gray-600">
+                        {idx === 0 && <Shield className="w-4 h-4 text-emerald-600 flex-shrink-0" />}
+                        {idx === 1 && <Zap className="w-4 h-4 text-amber-600 flex-shrink-0" />}
+                        {idx === 2 && <Target className="w-4 h-4 text-blue-600 flex-shrink-0" />}
+                        <span>{feature}</span>
                       </div>
                     ))}
                   </div>
