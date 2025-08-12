@@ -25,7 +25,31 @@ const CREATE_TABLE_SQL = `
 class DatabaseService {
   async submitWaitlist({ parentName, email, childAge, source = 'website' }) {
     try {
-      // For now, use localStorage as fallback
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          parentName,
+          email,
+          childAge,
+          source
+        })
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        console.log('Waitlist submission saved to database:', result.data);
+        return { success: true, data: result.data };
+      } else {
+        throw new Error(result.error || 'Failed to save submission');
+      }
+    } catch (error) {
+      console.error('Error submitting waitlist:', error);
+      
+      // Fallback to localStorage if API fails
       const submission = {
         parentName,
         email,
@@ -35,28 +59,30 @@ class DatabaseService {
         status: 'pending'
       };
 
-      // Store in localStorage
       const existingSubmissions = JSON.parse(localStorage.getItem('waitlistSubmissions') || '[]');
       existingSubmissions.push(submission);
       localStorage.setItem('waitlistSubmissions', JSON.stringify(existingSubmissions));
-
-      console.log('PostgreSQL Database URL:', `postgresql://neondb_owner:****@ep-cold-frog-ae40yk3j-pooler.c-2.us-east-2.aws.neon.tech/neondb`);
-      console.log('Waitlist submission saved to localStorage:', submission);
       
       return { success: true, data: submission };
-    } catch (error) {
-      console.error('Error submitting waitlist:', error);
-      return { success: false, error: error.message };
     }
   }
 
   async getWaitlistSubmissions() {
     try {
-      const submissions = JSON.parse(localStorage.getItem('waitlistSubmissions') || '[]');
-      return { success: true, data: submissions };
+      const response = await fetch('/api/waitlist');
+      const result = await response.json();
+      
+      if (result.success) {
+        return { success: true, data: result.data };
+      } else {
+        throw new Error(result.error || 'Failed to fetch submissions');
+      }
     } catch (error) {
       console.error('Error fetching waitlist submissions:', error);
-      return { success: false, error: error.message };
+      
+      // Fallback to localStorage if API fails
+      const submissions = JSON.parse(localStorage.getItem('waitlistSubmissions') || '[]');
+      return { success: true, data: submissions };
     }
   }
 
