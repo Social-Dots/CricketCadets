@@ -54,10 +54,8 @@ export default function HeroSection({ onRegisterClick }) {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
                 {" "}Junior Cricket
               </span>
-              <br />
-              in 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-                {" "}Canada.
+                {" "}in Canada.
               </span>
             </motion.h1>
 
