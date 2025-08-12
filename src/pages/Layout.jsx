@@ -110,7 +110,7 @@ export default function Layout({ children, currentPageName }) {
                         <a 
                             href="#" 
                             onClick={(e) => scrollToSection(e, '#top')} 
-                            className="text-white hover:opacity-80 transition-opacity flex items-center"
+                            className="text-white hover:opacity-80 transition-opacity flex items-center gap-3"
                         >
                             {/* Logo Image */}
                             <img 
