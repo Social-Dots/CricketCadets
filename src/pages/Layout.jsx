@@ -114,7 +114,7 @@ export default function Layout({ children, currentPageName }) {
                         >
                             {/* Logo Image */}
                             <img 
-                                src="/Logo.png" 
+                                src="/logo.png" 
                                 alt="Cricket Cadet Logo" 
                                 className="w-10 h-10 object-contain"
                             />
